@@ -1,15 +1,20 @@
 defmodule Carbon.Fetcher do
   require Logger
 
-  @urlbase Application.get_env(:carbon, :urlbase)
   @table :carbon
 
-  def start() do
-    response = Mojito.request(:get, "#{@urlbase}/intensity")
+  def start(base_url) do
+    response = Mojito.request(:get, base_url)
     handle_response(response)
   end
-  def start(from, to) do
-    response = Mojito.request(:get, "#{@urlbase}/intensity/#{from}/#{to}")
+
+  def start(base_url, from) do
+    response = Mojito.request(:get, "#{base_url}/#{from}")
+    handle_response(response)
+  end
+
+  def start(base_url, from, to) do
+    response = Mojito.request(:get, "#{base_url}/#{from}/#{to}")
     handle_response(response)
   end
 

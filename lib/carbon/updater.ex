@@ -4,6 +4,7 @@ defmodule Carbon.Updater do
 
   @me __MODULE__
   @table :carbon
+  @urlbase Application.get_env(:carbon, :urlbase)
 
   ## Client API
 
@@ -12,7 +13,7 @@ defmodule Carbon.Updater do
   end
 
   def fetch_update() do
-    task = Task.async(&Carbon.Fetcher.start/0)
+    task = Task.async(fn -> Carbon.Fetcher.start(@urlbase) end)
     {:ok, _pid} = Task.await task
   end
 

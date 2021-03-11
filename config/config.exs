@@ -10,4 +10,4 @@ config :carbon, Carbon.Repo,
   hostname: "localhost"
 
 config :carbon,
-  urlbase: "https://api.carbonintensity.org.uk"
+  urlbase: "https://api.carbonintensity.org.uk/intensity"
