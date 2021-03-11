@@ -8,3 +8,6 @@ config :carbon, Carbon.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
+
+config :carbon,
+  urlbase: "https://api.carbonintensity.org.uk"
