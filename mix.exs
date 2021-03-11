@@ -25,7 +25,8 @@ defmodule Carbon.MixProject do
       {:mojito, "~> 0.7.7"},
       {:jason, "~> 1.0"},
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"}
+      {:postgrex, ">= 0.0.0"},
+      {:bypass, "~> 2.1", only: :test}
     ]
   end
 end
