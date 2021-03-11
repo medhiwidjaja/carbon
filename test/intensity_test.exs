@@ -3,6 +3,10 @@ defmodule Carbon.IntensityTest do
 
   alias Carbon.Intensity
 
+  setup do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Carbon.Repo)
+  end
+
   test "changeset is ok for valid data" do
     changeset = Intensity.changeset(%Intensity{}, %{from_time: DateTime.utc_now, to_time: DateTime.utc_now, actual: 555})
     assert changeset.valid?
@@ -22,4 +26,15 @@ defmodule Carbon.IntensityTest do
     changeset = Intensity.changeset(%Intensity{}, %{from_time: DateTime.utc_now, to_time: DateTime.utc_now, actual: nil})
     refute changeset.valid?
   end
+
+  test "changeset is invalid for duplicate data" do
+    t1 = ~U[2021-03-11 15:00:00Z]
+    t2 = ~U[2021-03-11 15:30:00Z]
+    Carbon.Repo.insert %Intensity{from_time: t1, to_time: t2, actual: 555}
+    changeset = Intensity.changeset(%Intensity{}, %{from_time: t1, to_time: t2, actual: 555})
+    {:error, cs} = Carbon.Repo.insert changeset
+    refute cs.valid?
+  end
+
+
 end
