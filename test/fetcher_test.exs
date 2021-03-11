@@ -24,8 +24,6 @@ defmodule Carbon.FetcherTest do
         Plug.Conn.resp(conn, 200, "")
       end)
 
-      {:ok, client} = Carbon.Fetcher.start("http://localhost:#{bypass.port}/")
-
       assert {:ok, _} = Carbon.Fetcher.start("http://localhost:#{bypass.port}/")
 
       # Blocks until the TCP socket is closed.
