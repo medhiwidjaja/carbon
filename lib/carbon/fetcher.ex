@@ -25,7 +25,8 @@ defmodule Carbon.Fetcher do
     {:ok, self()}
   end
 
-  defp handle_response({:error, reason}) do
+  defp handle_response({:error, error}) do
+    reason = error.reason.reason
     Logger.info "Fetcher error due to #{inspect reason}"
    {:error, reason}
  end
