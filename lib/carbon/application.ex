@@ -10,6 +10,7 @@ defmodule Carbon.Application do
     children = [
       # Starts a worker by calling: Carbon.Worker.start_link(arg)
       # {Carbon.Worker, arg}
+      {Carbon.Repo, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
