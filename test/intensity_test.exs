@@ -36,5 +36,15 @@ defmodule Carbon.IntensityTest do
     refute cs.valid?
   end
 
+  test "get latest record from database" do
+    t1 = ~U[2021-03-11 22:00:00Z]
+    t2 = ~U[2021-03-11 22:30:00Z]
+    Carbon.Repo.insert %Intensity{from_time: t1, to_time: t2, actual: 333}
+
+    latest = Intensity.get_latest()
+    assert latest.actual == 333
+    assert latest.to_time == t2
+  end
+
 
 end
