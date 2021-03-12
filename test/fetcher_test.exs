@@ -1,8 +1,7 @@
 defmodule Carbon.FetcherTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case #, async: true
 
   setup do
-    :ets.new(:carbon, [:named_table, :public])
     bypass = Bypass.open()
     {:ok, bypass: bypass}
   end

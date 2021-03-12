@@ -2,7 +2,6 @@ defmodule Carbon.FetcherTest do
   use ExUnit.Case
 
   setup do
-    :ets.new(:carbon, [:named_table, :public])
     :ets.insert :carbon, {:key, data()}
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Carbon.Repo)
   end
