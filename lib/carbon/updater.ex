@@ -35,13 +35,13 @@ defmodule Carbon.Updater do
 
   ## Helper Functions
 
-  def fetch_update() do
+  defp fetch_update() do
     fetcher = Task.async(fn -> Carbon.Fetcher.start(@urlbase) end)
 
     process(fetcher)
   end
 
-  def fetch_updates(from, to) do
+  defp fetch_updates(from, to) do
     fetcher = Task.async(fn -> Carbon.Fetcher.start(@urlbase, from, to) end)
 
     process(fetcher)
@@ -54,7 +54,7 @@ defmodule Carbon.Updater do
     Task.await(processor)
   end
 
-  def schedule_download() do
+  defp schedule_download() do
     latest_record = Carbon.Intensity.get_latest()
     timestamp =
       case latest_record do
@@ -70,7 +70,6 @@ defmodule Carbon.Updater do
   end
 
   defp schedule_work(start_time) do
-    IO.puts start_time
     now = DateTime.utc_now()
     {:ok, ts, _} = DateTime.from_iso8601(start_time)
     if DateTime.diff(now, ts)/60 < 30 do
