@@ -1,4 +1,5 @@
 defmodule Carbon.Processor do
+  require Logger
 
   alias Carbon.Intensity
 
@@ -6,6 +7,7 @@ defmodule Carbon.Processor do
 
   def start(key) when is_nil(key), do: {:error, "Key is nil"}
   def start(key) do
+    Logger.info "Processing..."
     :ets.lookup(@table, key)
     |> case do
       [] -> {:error, key, "Data not found"}
