@@ -1,4 +1,4 @@
-defmodule Carbon.ProcessorTest do
+defmodule Carbon.FetcherTest do
   use ExUnit.Case #, async: true
 
   setup do
