@@ -6,8 +6,8 @@ defmodule Carbon.Intensity do
 
   schema "intensities" do
     field :from_time, :utc_datetime
-    field :to_time,   :utc_datetime
-    field :actual,    :integer
+    field :to_time, :utc_datetime
+    field :actual, :integer
     timestamps()
   end
 
@@ -22,4 +22,7 @@ defmodule Carbon.Intensity do
     Carbon.Repo.one(from e in Carbon.Intensity, order_by: [desc: :to_time], limit: 1)
   end
 
+  def get_list() do
+    Carbon.Repo.all(from e in Carbon.Intensity, order_by: [desc: :to_time])
+  end
 end
