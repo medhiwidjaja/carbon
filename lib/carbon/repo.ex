@@ -3,5 +3,5 @@ defmodule Carbon.Repo do
     otp_app: :carbon,
     adapter: Ecto.Adapters.Postgres
 
-  use Phoenix.Pagination, per_page: 15
+  use Scrivener, page_size: 15
 end

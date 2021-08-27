@@ -48,7 +48,8 @@ defmodule Carbon.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:mojito, "~> 0.7.9"},
-      {:bypass, "~> 2.1", only: :test}
+      {:bypass, "~> 2.1", only: :test},
+      {:scrivener_ecto, "~> 2.0"}
     ]
   end
 

@@ -105,4 +105,9 @@ defmodule Carbon.Measure do
   def get_latest() do
     Repo.one(from e in Intensity, order_by: [desc: :to_time], limit: 1)
   end
+
+  def paginate_intensities(params \\ []) do
+    Intensity
+    |> Repo.paginate(params)
+  end
 end
