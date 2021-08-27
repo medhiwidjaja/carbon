@@ -14,10 +14,10 @@ defmodule CarbonWeb.PageLive do
   end
 
   defp apply_action(socket, :index, _params) do
-    intensities = if connected?(socket), do: Measure.list_intensities(), else: []
+    current = Measure.get_latest()
 
     socket
     |> assign(:conn, socket)
-    |> assign(:intensities, intensities)
+    |> assign(:current, current)
   end
 end
