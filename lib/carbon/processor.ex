@@ -1,7 +1,7 @@
 defmodule Carbon.Processor do
   require Logger
 
-  alias Carbon.Intensity
+  alias Carbon.Measure.Intensity
 
   @table :carbon
 
@@ -50,7 +50,8 @@ defmodule Carbon.Processor do
       to = data["to"] |> normalize_date()
       actual = data["intensity"]["actual"]
       forecast = data["intensity"]["forecast"]
-      %{from_time: from, to_time: to, actual: actual, forecast: forecast}
+      index = data["intensity"]["index"]
+      %{from_time: from, to_time: to, actual: actual, forecast: forecast, index: index}
     end)
   end
 

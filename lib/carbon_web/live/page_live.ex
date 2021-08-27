@@ -1,6 +1,8 @@
 defmodule CarbonWeb.PageLive do
   use CarbonWeb, :live_view
 
+  alias Carbon.Measure
+
   @impl true
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -12,7 +14,7 @@ defmodule CarbonWeb.PageLive do
   end
 
   defp apply_action(socket, :index, _params) do
-    list = Carbon.Intensity.get_list()
+    list = Measure.list_intensities()
 
     socket
     |> assign(:table, list)

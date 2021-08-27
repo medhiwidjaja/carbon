@@ -31,7 +31,7 @@ config :carbon,
   # Number of minutes to wait for the half-hour download to start
   update_delay: 10,
   # Starting date/time to fill in the database
-  starting_datetime: "2021-08-17T05:00:00Z"
+  starting_datetime: "2021-08-20T05:00:00Z"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

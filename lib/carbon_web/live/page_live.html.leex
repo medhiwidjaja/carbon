@@ -18,7 +18,12 @@
           <th class="w-1/3 text-xs uppercase px-6 py-2 text-right">
             Actual
           </th>
-          <th></th>
+          <th class="w-1/3 text-xs uppercase px-6 py-2 text-right">
+            Forecast
+          </th>
+          <th class="w-1/3 text-xs uppercase px-6 py-2">
+            Index
+          </th>
         </tr>
       </thead>
       <tbody id="ratings" class="divide-y divide-gray-200">
@@ -32,6 +37,12 @@
             </td>
             <td class="text-sm px-6 py-2 text-right font-bold">
               <%= row.actual %>
+            </td>
+            <td class="text-sm px-6 py-2 text-right font-bold">
+              <%= row.forecast %>
+            </td>
+            <td class="text-sm px-6 py-2 text-right font-bold">
+              <%= row.index %>
             </td>
           </tr>
         <% end %>
