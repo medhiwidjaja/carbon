@@ -14,9 +14,10 @@ defmodule CarbonWeb.PageLive do
   end
 
   defp apply_action(socket, :index, _params) do
-    list = Measure.list_intensities()
+    intensities = if connected?(socket), do: Measure.list_intensities(), else: []
 
     socket
-    |> assign(:table, list)
+    |> assign(:conn, socket)
+    |> assign(:intensities, intensities)
   end
 end
