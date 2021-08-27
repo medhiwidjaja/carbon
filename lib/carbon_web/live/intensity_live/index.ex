@@ -9,7 +9,6 @@ defmodule CarbonWeb.IntensityLive.Index do
 
   @impl true
   def handle_params(%{"page" => page}, _url, socket) do
-    IO.puts("#{page} *********")
     assigns = get_and_assign_page(page)
     {:noreply, assign(socket, assigns)}
   end
