@@ -49,7 +49,8 @@ defmodule Carbon.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:mojito, "~> 0.7.9"},
       {:bypass, "~> 2.1", only: :test},
-      {:scrivener_ecto, "~> 2.0"}
+      {:scrivener_ecto, "~> 2.0"},
+      {:contex, "~> 0.4.0"}
     ]
   end
 

@@ -19,6 +19,7 @@ defmodule CarbonWeb.Router do
 
     live "/", PageLive, :index
     live "/table", IntensityLive.Index, :index
+    live "/chart", ChartLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

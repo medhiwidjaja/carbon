@@ -47,8 +47,8 @@
         </tbody>
       </table>
     </div>
-    <div class='fixed bottom-0  mx-auto py-4 bg-gray-50'>
-      <div class="flex flex-row justify-center px-10">
+    <div class='fixed bottom-0 w-auto mx-auto py-4 bg-gray-200'>
+      <div class="flex flex-row w-full justify-center px-10">
         <nav class="border-t border-gray-200">
           <ul class="flex my-2">
             <li class="">
@@ -56,7 +56,7 @@
             </li>
             <%= for idx <-  Enum.to_list(1..@total_pages) do %>
                 <li class="">
-                <a class="px-2 py-2 <%= if @page_number == idx, do: "pointer-events-none text-gray-600" %>" href="#" phx-click="nav" phx-value-page="<%= idx %>"><%= idx %></a>
+                <a class="mx-1 px-2 py-2 <%= if @page_number == idx, do: "pointer-events-none text-gray-400", else: "text-white bg-gray-400 rounded-lg" %>" href="#" phx-click="nav" phx-value-page="<%= idx %>"><%= idx %></a>
                 </li>
             <% end %>
             <li class="">
